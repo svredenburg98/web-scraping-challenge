@@ -20,13 +20,23 @@
       <div class="col-md-12">
       </div>
     </div>
-    
-    
+    <h1>{{mars_results["news_title"]}}</h1>
+    <p>{{mars_results["news_p"]}}</p>
+    <img src={{ mars_results["featured_image_url"] }}>
+    {%for result in mars_results["hemisphere_pics"]%}
+    <h1>result.title</h1>
+    <img src={{result.img_url}}>
+    {% endfor %}
+    <table>
+     {{mars_results["mars_table"]}}
+    </table>
 
   </div>
+ 
   
-  <p>{{mars_results}}</p>
-  
+
+
+
 </body>
 
 </html>

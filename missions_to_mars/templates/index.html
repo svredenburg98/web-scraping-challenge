@@ -20,9 +20,6 @@
       <div class="col-md-12">
       </div>
     </div>
-    <h1>{{mars_results["news_title"]}}</h1>
-    <p>{{mars_results["news_p"]}}</p>
-    <img src={{ mars_results["featured_image_url"] }}>
     {%for result in mars_results["hemisphere_pics"]%}
     <h1>result.title</h1>
     <img src={{result.img_url}}>
@@ -30,6 +27,15 @@
     <table>
      {{mars_results["mars_table"]}}
     </table>
+    {%for result in mars_results%}
+    <h1>{{ result["news_title"] }}</h1>
+    <p>{{result["news_p"]}}</p>
+    {{result["mars_table"]}}
+    {%for img in result["hemisphere_pics"]%}
+    <h1>{{img["title"]}}</h1>
+    <img src={{img["img_url"]}}>
+    {%endfor%}
+    {%endfor%}
 
   </div>
  

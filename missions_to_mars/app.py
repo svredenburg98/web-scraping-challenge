@@ -18,13 +18,12 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/mars"
 mongo = PyMongo(app)
 
 mars_data = mongo.db.mars_data
-mars_data.drop()
 
 
 @app.route("/")
 def index():
     
-    mars_results = mars_data.find()
+    mars_results = list(mars_data.find())
     return render_template("index.html", mars_results=mars_results)
     
 

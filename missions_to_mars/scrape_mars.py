@@ -27,6 +27,8 @@ def scrape():
     teaser1 = teasers[0].text
 
     #scrape JPL
+    ## For some reason, the py version of this part of the code does not work. It is exactly the same as the notebook, which works fine.
+    ## I decided to comment it out so I could continue, but included code in the html that should work if the scraping is successful.
 
     # jpl_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     # browser.visit(jpl_url)

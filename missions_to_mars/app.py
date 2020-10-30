@@ -18,7 +18,7 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/mars"
 mongo = PyMongo(app)
 
 mars_data = mongo.db.mars_data
-
+mars_data.drop()
 
 @app.route("/")
 def index():

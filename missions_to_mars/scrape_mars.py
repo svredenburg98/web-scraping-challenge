@@ -30,20 +30,21 @@ def scrape():
     ## For some reason, the py version of this part of the code does not work. It is exactly the same as the notebook, which works fine.
     ## I decided to comment it out so I could continue, but included code in the html that should work if the scraping is successful.
 
-    # jpl_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
-    # browser.visit(jpl_url)
+    jpl_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
+    browser.visit(jpl_url)
 
-    # browser.click_link_by_partial_text('FULL IMAGE')
+    browser.click_link_by_partial_text('FULL IMAGE')
 
-    # html2 = browser.html
-    # soup2 = BeautifulSoup(html2, 'html.parser')
-
-    # images = soup2.find_all(class_="fancybox-image")
+    html2 = browser.html
+    soup2 = BeautifulSoup(html2, 'html.parser')
 
 
-    # image = images[0]
-    # link = image.get('src')
-    # featured_image_url = 'https://www.jpl.nasa.gov' + link
+    images = soup2.find_all(class_="fancybox-image")
+    
+
+    image = images[0]
+    link = image.get('src')
+    featured_image_url = 'https://www.jpl.nasa.gov' + link
 
     #scrape mars table
 
@@ -84,7 +85,7 @@ def scrape():
 
     final_dict = {"news_title": title1, 
                   "news_p": teaser1,
-                  #"featured_image": featured_image_url,
+                  "featured_image": featured_image_url,
                   "mars_table": html_mars_table,
                   "hemisphere_pics": hemisphere_image_urls}
 
